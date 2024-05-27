@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин печенья</title>
+</head>
+<body>
+{% for product in products_data %}
+<div class="products-item">
+    <div class="products-item-image">
+        <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.title }}">
+    </div>
+    <div class="products-item-details">
+        <div class="products-item-title">{{ product.title }}</div>
+        <div class="products-item-text">{{ product.text }}</div>
+        <div class="products-item-extra">
+            <div class="products-item-info">
+                <div class="products-item-price">{{ product.price }} $</div>
+                <div class="products-item-weight">{{ product.weight }}</div>
+            </div>
+            <button class="button violet-button">Заказать</button>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
